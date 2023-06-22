@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ELAIM</title>
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="shortcut icon" href="assets/img/logo2.png" type="image/png" />
+  </head>
+  <body style="box-shadow: inset 0 0 10px #f8a100">
+    <div id="overlay"></div>
+    <div id="easterEggOverlay" style="display: none">
+      <img src="assets/img/monstres/mimic.png" alt="" />
+      <div id="easterEggRespawn">
+        <h1><strike>Game</strike> <u>Website</u> Over...</h1>
+        <i>Rester sur un monstre, c'est pas une bonne idée</i>
+        <button onclick="window.location.reload()">Réapparaître</button>
+      </div>
+    </div>
+    <dialog id="download">
+      <a href="dl/elaim_setup.exe" class="btn"
+        >Télécharger le jeu (installateur)</a
+      >
+      <a href="dl/elaim_source.zip" class="btn">Télécharger le jeu (source)</a>
+      <a href="dl/manuel.pdf" class="btn">Lire le manuel</a>
+      <a href="dl/cdc.pdf" class="btn">Lire le rapport</a>
+      <button class="closebtn">X</button>
+    </dialog>
+    <dialog open="true" id="changelog">
+      <div class="row">
+        <div class="col1" id="changelog-commits">
+          <h1>Derniers commits</h1>
+          <i>Par précaution, l'API n'est plus utilisée</i>
+
+          <div class="teamcard">
+            <h1>modif: spawn point</h1>
+            <p>-</p>
+            <i>laure montredon le 2023-05-30 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>Fix langues</h1>
+            <p>-</p>
+            <i>Estéban CHARVIN le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>modificatino: langue*</h1>
+            <p>-</p>
+            <i>Irène LIN le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>Activation inventaire lvl1</h1>
+            <p>-</p>
+            <i>Estéban CHARVIN le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>Fix Spawn FinalLevel</h1>
+            <p>-</p>
+            <i>Estéban CHARVIN le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>Level4 dialog fixes &amp; MainMenu default playerprefs fix</h1>
+            <p>-</p>
+            <i>Estéban CHARVIN le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>final lvl huhu</h1>
+            <p>-</p>
+            <i>maelys esnault le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>modifcation: menu princiapl, téléportation</h1>
+            <p>-</p>
+            <i>Irène LIN le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>
+              +image case; modification : mainmenu description item fichier
+            </h1>
+            <p>-</p>
+            <i>Irène LIN le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>!FinalScene</h1>
+            <p>-</p>
+            <i>Ambroise Durst le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>correction Target !FinalLevel</h1>
+            <p>-</p>
+            <i>Ambroise Durst le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>modification: menu principal</h1>
+            <p>-</p>
+            <i>Irène LIN le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>+AutoConnect sur toute les scenes</h1>
+            <p>-</p>
+            <i>Ambroise Durst le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>modif lvl 2 3 4</h1>
+            <p>-</p>
+            <i>maelys esnault le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>retour du niveau5</h1>
+            <p>-</p>
+            <i>Ambroise Durst le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>+ picture pnj</h1>
+            <p>-</p>
+            <i>maelys esnault le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>modif all solo lvl</h1>
+            <p>-</p>
+            <i>maelys esnault le 2023-05-29 </i>
+          </div>
+
+          <div class="teamcard">
+            <h1>+ pnj lvl2</h1>
+            <p>-</p>
+            <i>maelys esnault le 2023-05-28 </i>
+          </div>
+        </div>
+        <div class="col1">
+          <h1>Difficultés</h1>
+          <ul>
+            <li>
+              L'inventaire causait des conflits, au vu de ses 500 lignes et sa
+              complexité.
+            </li>
+            <li>Les monstres disparaissaient très mal pour le multijoueur</li>
+            <li>Les préfabs GroundItem font crash quand récupérées.</li>
+            <li>
+              Les items au sol n'affichent pas leur item aux clients seuls
+            </li>
+          </ul>
+          <h1>Solutions</h1>
+          <ul>
+            <li>
+              L'inventaire à été split en deux fichiers, pour bien séparer les
+              listes d'items appartenant au joueur et l'interface utilisateur,
+              qui doit être un monobehiavour. Il a été grandement réécrit pour
+              faciliter la compréhension.
+            </li>
+            <li>Les monstres sont maintenant détruits par le serveur.</li>
+            <li>
+              Modification de la préfab. Ajout d'une méthode statique permettant
+              l'ajoute d'un GroundItem sans avoir à glisser déposer une prefab
+              grounditem dans un script mono dès qu'on en a besoin
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="closebtn">X</button>
+    </dialog>
+    <nav id="topbar">
+      <a href="javascript:openDialog('changelog')">changelog</a>
+      <img src="assets/img/logo2.png" alt="menu" id="logo" />
+      <a href="javascript:openDialog('download')">télécharger</a>
+    </nav>
+    <img src="assets/img/menu.png" id="menu" />
+    <section id="pl1">
+      <h1 id="start" class="pix">Démarrez l'aventure !</h1>
+      <a id="quests" href="#quests" class="nextbtn"> v </a>
+    </section>
+    <section class="row" id="questSection">
+      <div class="col1">
+        <section class="row" id="letter">
+          <div class="col1">
+            <h1 style="font-size: 24px">
+              Jeune aventurier, c'est ici que commence ton aventure !
+            </h1>
+            <p>
+              Cher ami, Je t'écris cette lettre aujourd'hui pour t'inviter à une
+              aventure incroyable dans un monde fantastique. Un monde rempli de
+              magie, de créatures étranges, et de merveilles que tu n'as jamais
+              imaginées.
+              <br /><br />
+              Je sais que tu as toujours été curieux de découvrir de nouveaux
+              horizons et que tu as une soif d'aventure qui n'a jamais été
+              étanchée. Eh bien, cette fois-ci, tu vas avoir la chance de partir
+              à la découverte d'un monde qui dépasse tout ce que tu as connu
+              jusqu'à présent.
+            </p>
+          </div>
+          <div class="col1">
+            <p>
+              Tu vas pouvoir rencontrer des squelettees et des slimes, affronter
+              des dryades et des golems, et explorer de nombreuses contrées
+              lointaines. Tu vas pouvoir vivre des moments forts en émotions,
+              des moments qui resteront gravés dans ta mémoire pour toujours.
+              <br /><br />
+              Alors, qu'attends-tu ? Prends ton grappin, ton épée, et ton
+              courage, et rejoins-moi dans cette quête extraordinaire. Nous
+              allons ensemble découvrir des trésors, vaincre des ennemis
+              redoutables, et vivre des aventures que nous n'oublierons jamais.
+              Réponds-moi vite pour que nous puissions partir à l'aventure le
+              plus rapidement possible. Je t'attends avec impatience.
+              <br /><br />
+
+              <a class="btn" href="javascript:alert('Clique sur télécharger')"
+                >pour rejoindre l'aventure, t'attends quoi ?</a
+              >
+            </p>
+          </div>
+        </section>
+      </div>
+      <div class="col1" id="map">
+        <section class="row">
+          <div class="col1">
+            <h1 class="questTitle">Le Ventre de la Terre</h1>
+
+            <img
+              src="assets/img/monstres/bat.png"
+              alt=""
+              id="questA"
+              class="questImg"
+            />
+          </div>
+          <div class="col1">
+            <h1 class="questTitle">Le village et Puis'En</h1>
+
+            <img
+              src="assets/img/monstres/leaf.png"
+              alt=""
+              id="questB"
+              class="questImg"
+            />
+          </div>
+        </section>
+        <section class="row">
+          <div class="col1">
+            <h1 class="questTitle">En'Fin, la Fin</h1>
+
+            <img
+              src="assets/img/monstres/skel.png"
+              alt=""
+              id="questC"
+              class="questImg"
+            />
+          </div>
+          <div class="col1">
+            <h1 class="questTitle">Laboratoire Yapolan</h1>
+
+            <img
+              src="assets/img/monstres/mimic.png"
+              alt=""
+              id="questD"
+              class="questImg"
+            />
+          </div>
+        </section>
+      </div>
+    </section>
+    <br />
+    <div
+      style="display: flex; align-items: center; justify-content: center"
+      class="afterQuest"
+    >
+      <a href="#team" class="nextbtn"> v </a>
+    </div>
+    <section id="team">
+      <h1>L'équipe</h1>
+      <div class="row">
+        <div class="col1 teamcard">
+          <h1>Laure</h1>
+          <img src="https://shoonia.github.io/1x1/favicon.png" alt="" />
+          <div>
+            <h2>@laure</h2>
+            <p>
+              Utilisatrice de briques, elle dispose maintenant d'une RTX afin de
+              mieux développer le "playeur", communément appellé le joueur.
+              Convertie par @akame, elle commence à la rivaliser sur genshin
+              mais reste 1re de la team tant qu'il s'agit de manger des tacos.
+              Très créative, elle s'occupe en grande partie des designs du jeu,
+              souvent dessinés parmis les arbres binaires d'algo.
+            </p>
+          </div>
+        </div>
+        <div class="col1 teamcard">
+          <h1>Estéban</h1>
+          <img src="https://shoonia.github.io/1x1/favicon.png" alt="" />
+          <div>
+            <h2>@sl4sh</h2>
+            <p>
+              Passionné de pythonneries et de csharperies, il s'occupe
+              principalement du multi et des monstres dans ELAIM (heureusement
+              moins puissants que ses conflooses). Très créatif, il n'hésitera
+              pas à utiliser <s>copilot</s> stackoverflow (pour l'inspi bien
+              sûr) et chercher les solutions les plus évidentes comme un vré
+              ingénieur.
+            </p>
+          </div>
+        </div>
+        <div class="col1 teamcard">
+          <h1>Maelys</h1>
+          <img src="https://shoonia.github.io/1x1/favicon.png" alt="" />
+          <div>
+            <h2>@akame</h2>
+            <p>
+              Pro-playeuse genshin depuis son plus jeune age, elle s'occupe des
+              outils, <s>primogemmes</s> et items du jeu. Son pseudonyme
+              inspirant bien évidemment du pacifisme, elle n'hésitera pas à
+              donner au joueur des potions de soin (en contrepartie de codes
+              discord nitro).
+            </p>
+          </div>
+        </div>
+        <div class="col1 teamcard">
+          <h1>Ambroise</h1>
+          <img src="https://shoonia.github.io/1x1/favicon.png" alt="" />
+          <div>
+            <h2>@tatouze</h2>
+            <p>
+              Adepte des bras de morphée en cours d'algo, il est chargé de créer
+              la logique des blocs et intéractions dans le jeu. Professionel du
+              jeu de cartes ascenceur, il n'hésitera pas à vous rajouter des
+              plateformes déplacables pour atteindre des consommables nourriture
+              qui ne sont heureusement pas des tupperwares.
+            </p>
+          </div>
+        </div>
+        <div class="col1 teamcard">
+          <h1>Irène</h1>
+          <img src="https://shoonia.github.io/1x1/favicon.png" alt="" />
+          <div>
+            <h2>@irene</h2>
+            <p>
+              Attention, c'est la grande leadeuse suprème du groupe qui impose
+              son respect parmi toute la team ! Ayant comme objectif l'User
+              Interface (eh <b>UI</b>), elle d&copy;?couvre les joies de l'UTF8
+              tout en réalisant divers graphismes relatifs au menu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="row">
+        <div class="col1">
+          <img
+            src="assets/img/logo.png"
+            alt=""
+            style="filter: invert(1); text-align: center; max-height: 256px"
+          />
+        </div>
+        <div class="col1">
+          <h1>Outils utilisés</h1>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 10px;
+            "
+          >
+            <a href="https://www.flaticon.com/" class="footerLogo">Flaticon</a>
+            <a href="https://unity.com/" class="footerLogo"> Unity </a>
+            <a
+              href="https://fish-networking.gitbook.io/docs/"
+              class="col footerLogo"
+              >FishNet</a
+            >
+            <a href="https://itch.io/" class="footerLogo"> Itch.io </a>
+            <a href="https://kenney.nl/" class="footerLogo">Kenney</a>
+            <a href="https://docs.gitlab.com/ee/api/rest/" class="footerLogo"
+              >GitLab API</a
+            >
+            <a href="https://www.oracle.com/cloud/free/" class="footerLogo"
+              >Oracle Cloud</a
+            >
+            <a href="https://www.auboutdufil.com/" class="footerLogo"
+              >Au bout du fil</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/changelog.js"></script>
+  </body>
+</html>
